@@ -17,13 +17,13 @@ const siteData = {
     { size: "8R", price: 15000, priceStr: "15.000", desc: "20 x 25 cm", finish: "Glossy Premium" },
     { size: "10R", price: 18000, priceStr: "18.000", desc: "25 x 30 cm", finish: "Glossy Premium" },
     { size: "12R", price: 23000, priceStr: "23.000", desc: "30 x 40 cm", finish: "Glossy Premium" },
-    { size: "17R/Poster", price: 25000, priceStr: "25.000", desc: "43 x 61 cm", finish: "Glossy Premium" }
+    { size: "Poster", price: 25000, priceStr: "25.000", desc: "32 x 48 cm", finish: "Glossy Premium" }
   ],
   
   otherProducts: [
-    { name: "Cetak Foto Kayu", desc: "Foto dengan frame kayu natural", priceInfo: "Mulai Rp 50.000", icon: Flame },
-    { name: "Kalender Custom", desc: "Kalender dengan foto pribadi", priceInfo: "Mulai Rp 75.000", icon: Calendar },
-    { name: "Yasin Tahlil", desc: "Cetak yasin dengan desain elegan", priceInfo: "Mulai Rp 100.000", icon: BookOpen }
+    { name: "Cetak Foto Kayu", desc: "Foto dengan frame kayu natural", priceInfo: "Mulai Rp 20.000", icon: Flame },
+    { name: "Kalender Custom", desc: "Kalender dengan foto pribadi", priceInfo: "Mulai Rp 15.000", icon: Calendar },
+    { name: "Yasin Tahlil", desc: "Cetak yasin dengan desain elegan", priceInfo: "Mulai Rp 9.000", icon: BookOpen }
   ],
   
   gallery: [
@@ -871,7 +871,7 @@ const App = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
               {siteData.instagramReels.map((reelUrl, i) => {
                 const titles = [
-                 
+                  "Proses Cetak Premium",
                   "Hasil Glossy Maksimal", 
                   "Kualitas Warna Tajam",
                   "Testimoni Pelanggan",
