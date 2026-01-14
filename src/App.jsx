@@ -839,21 +839,16 @@ const App = () => {
 
           {/* Main Video .mp4 */}
           <div className="mb-16 fade-on-scroll">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-4xl mx-auto" style={{ backgroundColor: '#000' }}>
               <video 
-                  controls 
-                  className="w-full"
-                  style={{
-                    maxHeight: '600px',
-                    objectFit: 'contain'
-                  }}
-                  poster="https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=1200&q=80"
-                  preload="metadata"
-                  playsInline
-                  width="1920"
-                  height="1080"
-                >
-                  <source src={siteData.mainVideo} type="video/mp4" />
+                controls 
+                className="w-full"
+                style={{ maxHeight: '500px', objectFit: 'contain' }}
+                poster="/gallery/video.png"
+                preload="metadata"
+                playsInline
+              >
+                <source src="/videos/showcase.mp4" type="video/mp4" />
                 Browser Anda tidak support video.
               </video>
             </div>
@@ -868,67 +863,81 @@ const App = () => {
               Instagram Reels
             </h3>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
-              {siteData.instagramReels.map((reelUrl, i) => {
-                const titles = [
-                  "Proses Cetak Premium",
-                  "Hasil Glossy Maksimal", 
-                  "Kualitas Warna Tajam",
-                  "Testimoni Pelanggan",
-                  "Behind The Scene"
-                ];
-                
-                const thumbnails = [
-                  "https://images.unsplash.com/photo-1606571284767-3ad89afaa4d6?w=400&h=600&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1542435503-956c469947f6?w=400&h=600&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=600&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400&h=600&fit=crop&q=80",
-                  "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=400&h=600&fit=crop&q=80"
-                ];
-                
-                return (
-                  <a
-                    key={i}
-                    href={reelUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-                    style={{ aspectRatio: '9/16' }}
-                  >
-                    <img
-                      src={thumbnails[i]}
-                      alt={titles[i]}
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                    
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-xl">
-                        <Play className="text-pink-600 fill-pink-600 ml-1" size={28} />
+            <div className="relative">
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
+              >
+                {siteData.instagramReels.map((reelUrl, i) => {
+                  const titles = [
+                    "Proses Cetak Premium",
+                    "Hasil Glossy Maksimal", 
+                    "Kualitas Warna Tajam",
+                    "Testimoni Pelanggan",
+                    "Behind The Scene"
+                  ];
+                  
+                  const gradients = [
+                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    "linear-gradient(135deg, #2563eb 0%, #1e40af 100%)",
+                    "linear-gradient(135deg, #1f2937 0%, #111827 100%)",
+                    "linear-gradient(135deg, #475569 0%, #334155 100%)",
+                    "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)"
+                  ];
+                  
+                  return (
+                    <a
+                      key={i}
+                      href={reelUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 w-72 snap-start relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                      style={{ 
+                        height: '500px',
+                        background: gradients[i]
+                      }}
+                    >
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-2xl">
+                          <Play className="text-pink-600 fill-pink-600 ml-1" size={36} />
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="absolute top-4 right-4">
-                      <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                        <Instagram className="text-white" size={20} />
+                      
+                      <div className="absolute top-4 right-4">
+                        <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                          <Instagram className="text-white" size={24} />
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white font-bold text-sm mb-1">{titles[i]}</h3>
-                      <div className="flex items-center gap-2 text-white/80 text-xs">
-                        <ArrowRight size={12} />
-                        <span>Tonton di Instagram</span>
+                      
+                      <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
+                        <h4 className="text-white font-bold text-lg mb-2">{titles[i]}</h4>
+                        <div className="flex items-center gap-2 text-white/80 text-sm">
+                          <Play size={14} />
+                          <span>Tap untuk tonton di Instagram</span>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                );
-              })}
+                    </a>
+                  );
+                })}
+              </div>
+              
+              <button
+                onClick={() => scrollReels('left')}
+                className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white hover:bg-gray-50 rounded-full items-center justify-center shadow-xl transition-all z-10"
+              >
+                <ChevronLeft className="text-gray-800" size={24} />
+              </button>
+              
+              <button
+                onClick={() => scrollReels('right')}
+                className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white hover:bg-gray-50 rounded-full items-center justify-center shadow-xl transition-all z-10"
+              >
+                <ChevronRight className="text-gray-800" size={24} />
+              </button>
             </div>
 
-            <p className="text-center text-gray-500 mb-8 lg:hidden">
-              👈 Geser untuk lihat lebih banyak
+            <p className="text-center text-gray-500 mt-8">
+              👈 Geser dan tap untuk tonton reels di Instagram
             </p>
           </div>
 
@@ -946,14 +955,60 @@ const App = () => {
         </div>
       </section>
 
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
+      <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+          
+          .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+          }
+          
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+          }
+          
+          .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+          
+          .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+          
+          .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+          }
+          
+          .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          
+          .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+          }
+          
+          .hero-gradient {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(29, 78, 216, 0.7) 100%);
+          }
+          
+          .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        div[style*="overflow-x-auto"]::-webkit-scrollbar {
-          display: none;
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
-      `}</style>
+        `}</style>
 
       {/* How to Order Section */}
       <section id="cara-order" className="py-32 bg-white">
