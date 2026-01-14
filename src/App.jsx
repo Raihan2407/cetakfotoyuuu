@@ -221,9 +221,16 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-24">
             <div className="flex-shrink-0">
-              <h1 className={`text-3xl lg:text-4xl font-black tracking-tight transition-all duration-300 ${scrolled ? 'gradient-text' : 'text-white drop-shadow-lg'}`}>
-                {siteData.brand}
-              </h1>
+              <a href="#beranda" className="flex items-center gap-3">
+                <img 
+                  src="/gallery/Logo.png" 
+                  alt="cetakfotoyuu logo" 
+                  className="h-12 lg:h-14 w-auto object-contain"
+                />
+                <h1 className={`text-3xl lg:text-4xl font-black tracking-tight transition-all duration-300 ${scrolled ? 'gradient-text' : 'text-white drop-shadow-lg'}`}>
+                  {siteData.brand}
+                </h1>
+              </a>
             </div>
             
             <div className="hidden lg:flex items-center space-x-2">
@@ -1156,7 +1163,14 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <h3 className="text-3xl font-black gradient-text mb-4">{siteData.brand}</h3>
+              <div className="flex items-center gap-3 mb-4">
+                <img 
+                  src="/gallery/Logo.png" 
+                  alt="cetakfotoyuu logo" 
+                  className="h-10 w-auto object-contain"
+                />
+                <h3 className="text-3xl font-black gradient-text">{siteData.brand}</h3>
+              </div>
               <p className="text-gray-400 leading-relaxed mb-4">{siteData.slogan}</p>
               <p className="text-gray-500 text-sm">
                 Cetak kenangan berharga Anda dengan hasil glossy premium yang tahan lama. Dipercaya sejak 2020 oleh 1000+ pelanggan.
