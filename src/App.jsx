@@ -49,10 +49,10 @@ const siteData = {
 ],
   
   deliveryInfo: [
-    { icon: Clock, title: "Pengerjaan Cepat", desc: "1-2 hari kerja untuk hasil terbaik" },
-    { icon: Package, title: "Pickup & Delivery", desc: "Ambil di tempat atau kirim ke alamat" },
-    { icon: Truck, title: "Area Coverage", desc: "Dabo Singkep dan sekitarnya" }
-  ]
+  { icon: Clock, title: "Pengerjaan Berkualitas", desc: "7 hari proses cetak premium + quality check sebelum dikirim" },
+  { icon: Package, title: "Pickup & Delivery", desc: "Ambil di tempat atau kirim ke alamat" },
+  { icon: Truck, title: "Area Coverage", desc: "Dabo Singkep dan sekitarnya" }
+]
 };
 
 const App = () => {
